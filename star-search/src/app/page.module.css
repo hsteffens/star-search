@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 20px; /* Adds spacing between the columns */
+  justify-content: flex-end;
+}
+
+.search {
+  flex: 0.45; /* 40% width */
+  display: flex;
+  justify-content: flex-end;
+}
+
+.results {
+  flex: 0.55; /* 60% width */
+}
