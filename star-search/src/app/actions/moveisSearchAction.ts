@@ -1,6 +1,7 @@
 "use server";
 
 import { MovieData } from "app/types/movies";
+import { fetchWrapper } from "utils/fetchMonitor";
 
 export const getFilteredMovies = async (searchText: string) => {
     const baseUrl = process.env.SWAPI_URL;
@@ -10,7 +11,7 @@ export const getFilteredMovies = async (searchText: string) => {
   
     while (nextPage) {
       try {
-        const response = await fetch(
+        const response = await fetchWrapper(
           `${baseUrl}films/?search=${searchText}&page=${page}`
         );
         const data = await response.json();
@@ -34,7 +35,7 @@ export const getMoviesByFilmUrl = async (filmUrls: string[]) => {
 
   for (const url of filmUrls) {
     try {
-      const response = await fetch(url);
+      const response = await fetchWrapper(url);
       if (response.ok) {
         const filmData = await response.json();
         films.push(filmData);
@@ -52,7 +53,7 @@ export const getMoviesByFilmUrl = async (filmUrls: string[]) => {
 export const getMovieById = async (id: string) => {
   const baseUrl = process.env.SWAPI_URL;
   try {
-    const response = await fetch(
+    const response = await fetchWrapper(
       `${baseUrl}films/${id}`
     );
     return await response.json();

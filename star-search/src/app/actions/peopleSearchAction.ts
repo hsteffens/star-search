@@ -1,6 +1,7 @@
 "use server";
 
 import { PeopleData } from "app/types/people";
+import { fetchWrapper } from "utils/fetchMonitor";
 
 export const getFilteredPeople = async (searchText: string) => {
   const baseUrl = process.env.SWAPI_URL;
@@ -10,7 +11,7 @@ export const getFilteredPeople = async (searchText: string) => {
 
   while (nextPage) {
     try {
-      const response = await fetch(
+      const response = await fetchWrapper(
         `${baseUrl}people/?search=${searchText}&page=${page}`
       );
       const data = await response.json();
@@ -33,7 +34,7 @@ export const getFilteredPeople = async (searchText: string) => {
 export const getPersonById = async (id: string) => {
   const baseUrl = process.env.SWAPI_URL;
   try {
-    const response = await fetch(
+    const response = await fetchWrapper(
       `${baseUrl}people/${id}`
     );
     return await response.json();
@@ -48,7 +49,7 @@ export const getPeopleByCharacterUrl = async (characterUrls: string[]) => {
 
   for (const url of characterUrls) {
     try {
-      const response = await fetch(url);
+      const response = await fetchWrapper(url);
       if (response.ok) {
         const personData = await response.json();
         people.push(personData);
