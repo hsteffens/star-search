@@ -13,6 +13,37 @@ StarSearch is a web application that empowers users to search for characters and
 *   **Docker:** Platform for containerizing and running the application in a consistent environment across different systems.
 *   **ESLint:** Linter to enforce code quality and consistency.
 
+## Architecture Overview
+
+This application uses Next.js as a full-stack framework, handling both frontend and backend functionalities.
+
+### Frontend
+
+The frontend consists of three routes:
+
+*   `/` (Home page)
+*   `/person-details/[id]` (Person details page)
+*   `/movie-details/[id]` (Movie details page)
+
+**Rendering Strategy:**
+
+*   **Client-Side Rendering (CSR):**  The majority of the pages are built using CSR components.
+*   **Server-Side Rendering (SSR):** Two specific components utilize SSR to fetch and load person and movie data from external APIs.
+
+**State Management:**
+
+*   Context API is used to manage the person and movie data.
+*   While multiple components can read the state, only the search component has the authority to update it.
+
+### Backend
+
+The backend provides a single API endpoint:
+
+*   `/api/stats`: This public API endpoint is used to track the performance of the integration with the external APIs.
+
+![start-search-architecture](https://github.com/user-attachments/assets/86874cef-0016-4c3a-9e36-b97b278e9bb3)
+
+
 ## Prerequisites
 
 *   Node.js (v20 or later)
@@ -84,3 +115,11 @@ Example usage:
 
 ```bash
 curl --location 'http://localhost:3000/api/stats'
+```
+
+## Environment Variables
+
+This application utilizes the following environment variables:
+
+*   `SWAPI_URL`: This variable defines the base URL for the Star Wars API (SWAPI) used to fetch data.  For example: `https://swapi.dev/api/`
+*   `RETRIES`: This variable specifies the number of retry attempts to be made when requests to the external API fail.  This can be a numerical value. For example: `3`
