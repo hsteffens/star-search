@@ -123,3 +123,5 @@ This application utilizes the following environment variables:
 
 *   `SWAPI_URL`: This variable defines the base URL for the Star Wars API (SWAPI) used to fetch data.  For example: `https://swapi.dev/api/`
 *   `RETRIES`: This variable specifies the number of retry attempts to be made when requests to the external API fail.  This can be a numerical value. For example: `3`
+
+**Note:**  It's crucial to configure these environment variables appropriately for the application to function correctly.  The specific method for setting these variables will depend on the deployment environment (e.g., `.env.local` files for local development, platform-specific settings for cloud deployments).

@@ -1,7 +1,7 @@
 "use server";
 
 import { PeopleData } from "app/types/people";
-import { fetchWrapper } from "utils/fetchMonitor";
+import { fetchWrapper } from "utils/fetchWrapper";
 
 export const getFilteredPeople = async (searchText: string) => {
   const baseUrl = process.env.SWAPI_URL;

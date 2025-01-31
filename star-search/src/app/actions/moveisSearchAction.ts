@@ -1,7 +1,7 @@
 "use server";
 
 import { MovieData } from "app/types/movies";
-import { fetchWrapper } from "utils/fetchMonitor";
+import { fetchWrapper } from "utils/fetchWrapper";
 
 export const getFilteredMovies = async (searchText: string) => {
     const baseUrl = process.env.SWAPI_URL;
