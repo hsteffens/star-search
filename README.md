@@ -64,27 +64,45 @@ The backend provides a single API endpoint:
     npm install
     ```
 
-3.  **Run the development server:**
+3.  **Set Environment Variables:**
 
-    ```bash
-    npm run dev
-    ```
-
-4.  **Access the application:**
+    Create a `.env.local` file in the root of the project and add the following environment variables:
 
     ```
-    http://localhost:3000/
+    SWAPI_URL=[https://swapi.dev/api/](https://swapi.dev/api/)
+    RETRIES=3  # Optional: Number of retry attempts (defaults to 3)
     ```
 
+    See the [Environment Variables](#environment-variables) section for more details.
+
+4.  **Run the development server:**
+
+    ```bash
+    npm run dev
+    ```
+
+5.  **Access the application:**
+
+    ```
+    http://localhost:3000/
+    ```
 ## How to Run Using Docker
 
-1.  **Build the Docker image:**
+1.  **Set Environment Variables:**
+
+    Create a `.env.local` file in the root of the project and add the following environment variables:
+
+    ```
+    SWAPI_URL=[https://swapi.dev/api/](https://swapi.dev/api/)
+    RETRIES=3  # Optional: Number of retry attempts (defaults to 3)
+
+2.  **Build the Docker image:**
 
     ```bash
     docker-compose build
     ```
 
-2.  **Start the Docker container:**
+3.  **Start the Docker container:**
 
     ```bash
     docker-compose up -d  # Add -d for detached mode (runs in the background)
