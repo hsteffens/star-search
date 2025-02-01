@@ -5,7 +5,7 @@ import styles from "./Search.module.css";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { SearchContext, SearchContextType } from "app/contexts/SearchContext";
 import { getFilteredPeople } from "app/actions/peopleSearchAction";
-import { getFilteredMovies } from "app/actions/moveisSearchAction";
+import { getFilteredMovies } from "app/actions/moviesSearchAction";
 
 type FormData = {
     searchText: string;

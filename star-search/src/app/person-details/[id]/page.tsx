@@ -6,7 +6,7 @@ import { getPersonById } from "app/actions/peopleSearchAction";
 import { useEffect, useState } from "react";
 import { Person } from "app/types/people";
 import { MovieData } from "app/types/movies";
-import { getMoviesByFilmUrl } from "app/actions/moveisSearchAction";
+import { getMoviesByFilmUrl } from "app/actions/moviesSearchAction";
 import Link from "next/link";
 import { getObjectId } from "utils/helper";
 
