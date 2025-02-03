@@ -35,12 +35,17 @@ export default function PersonDetails() {
     const fetchPersonDetails = async () => {
       try {
         const personData = await getPersonById(id as string);
-        setPerson(personData);
 
-        // etch movie data based on person films
-        if (personData.films && personData.films.length > 0) {
-          const movieDescriptions = await getMoviesByFilmUrl(personData.films);
-          setMovies(movieDescriptions);
+        if (!personData) {
+          alert(`Person not found: ${id}`)
+        } else {
+          setPerson(personData);
+
+          // fetch movie data based on person films
+          if (personData.films && personData.films.length > 0) {
+            const movieDescriptions = await getMoviesByFilmUrl(personData.films);
+            setMovies(movieDescriptions);
+          }
         }
       } catch (error) {
         console.error("Error fetching person details:", error);

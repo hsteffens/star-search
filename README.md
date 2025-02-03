@@ -90,7 +90,7 @@ The backend provides a single API endpoint:
 
 1.  **Set Environment Variables:**
 
-    Create a `.env.local` file in the root of the project and add the following environment variables:
+    Create a `/star-search/.env.local` file in the root of the project and add the following environment variables:
 
     ```
     SWAPI_URL=[https://swapi.dev/api/](https://swapi.dev/api/)

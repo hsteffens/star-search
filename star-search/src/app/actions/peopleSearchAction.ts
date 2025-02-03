@@ -6,7 +6,7 @@
 
 "use server";
 
-import { PeopleData } from "app/types/people";
+import { PeopleData, Person } from "app/types/people";
 import { fetchWrapper } from "utils/fetchWrapper";
 
 /**
@@ -49,7 +49,7 @@ export const getFilteredPeople = async (searchText: string): Promise<PeopleData[
  * @returns {Promise<PeopleData | undefined>} A promise that resolves to a PeopleData object
  *                                           or undefined if an error occurs.
  */
-export const getPersonById = async (id: string): Promise<PeopleData | undefined> => {
+export const getPersonById = async (id: string): Promise<Person | undefined> => {
   const baseUrl = process.env.SWAPI_URL;
   try {
     const response = await fetchWrapper(`${baseUrl}people/${id}`);

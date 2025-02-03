@@ -6,7 +6,7 @@
 
 "use server";
 
-import { MovieData } from "app/types/movies";
+import { Movie, MovieData } from "app/types/movies";
 import { fetchWrapper } from "utils/fetchWrapper";
 
 /**
@@ -82,7 +82,7 @@ export const getMoviesByFilmUrl = async (filmUrls: string[]): Promise<MovieData[
  * @returns {Promise<MovieData | undefined>} A promise that resolves to a MovieData object
  *                                           or undefined if an error occurs.
  */
-export const getMovieById = async (id: string): Promise<MovieData | undefined> => {
+export const getMovieById = async (id: string): Promise<Movie | undefined> => {
   const baseUrl = process.env.SWAPI_URL;
   try {
     const response = await fetchWrapper(`${baseUrl}films/${id}`);

@@ -30,12 +30,17 @@ export default function MovieDetails() {
     const fetchMovieDetails = async () => {
       try {
         const movieData = await getMovieById(id as string);
-        setMovie(movieData);
 
-        // etch movie data based on person films
-        if (movieData.characters && movieData.characters.length > 0) {
-          const people = await getPeopleByCharacterUrl(movieData.characters);
-          setCharacters(people);
+        if (!movieData) {
+          alert(`Movie not found: ${id}`)
+        } else {
+          setMovie(movieData);
+
+          // fetch movie data based on person films
+          if (movieData.characters && movieData.characters.length > 0) {
+            const people = await getPeopleByCharacterUrl(movieData.characters);
+            setCharacters(people);
+          }
         }
       } catch (error) {
         console.error("Error fetching movie details:", error);
